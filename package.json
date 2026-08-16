@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "studio": "sanity dev",
+    "studio:build": "sanity build",
+    "studio:deploy": "sanity deploy"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
@@ -15,7 +18,7 @@
     "@mux/mux-video": "^0.31.2",
     "@portabletext/react": "^3.1.0",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^6.9.1",
+    "@sanity/vision": "^3.99.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "hls.js": "^1.6.17",

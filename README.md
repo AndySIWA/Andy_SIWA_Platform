@@ -15,7 +15,7 @@ Plateforme web interactive (Next.js + Sanity CMS) présentant réalisations, blo
 - **Blog & Articles** — articles techniques avec partage (LinkedIn, X, WhatsApp, Facebook, copie de lien)
 - **Marketplace Digitale** — produits digitaux vendus via Chariow
 - **Idées & Projets futurs** — roadmap avec statuts (concept / étude / prototype / bientôt)
-- **Studio Sanity** — CMS embarqué pour gérer tout le contenu (projets, posts, produits, idées, profil)
+- **Studio Sanity** — CMS hébergé sur Sanity cloud pour gérer tout le contenu (projets, posts, produits, idées, profil)
 - **Fond animé** — particules connectées sur canvas (style constellation) + halos néon
 - **Design high-tech premium** — thème sombre, néon cyan/bleu/violet, typographies Inter / Orbitron / Rajdhani
 
@@ -40,7 +40,6 @@ Plateforme web interactive (Next.js + Sanity CMS) présentant réalisations, blo
 │   │   ├── blog/              # Liste + détail [slug]
 │   │   ├── marketplace/       # Produits digitaux
 │   │   ├── idees/             # Idées & projets futurs
-│   │   ├── studio/            # Studio Sanity embarqué
 │   │   └── globals.css        # Thème, mesh bg, cartes/liens cyber
 │   ├── components/            # AvatarFrame, ParticleBackground, Navbar, Footer, ShareButtons, LinkedinIcon
 │   └── sanity/
@@ -52,6 +51,7 @@ Plateforme web interactive (Next.js + Sanity CMS) présentant réalisations, blo
 ├── img/                       # Images legacy
 ├── _legacy/                   # Ancien site statique (HTML/CSS/JS)
 ├── sanity.config.ts           # Config Sanity Studio
+├── sanity.cli.ts              # Config CLI Sanity (dev/deploy)
 ├── netlify.toml               # Config Netlify
 └── package.json
 ```
@@ -93,7 +93,15 @@ npm run start     # Production (après build)
 npm run lint      # Lint
 ```
 
-Le **Studio Sanity** est accessible sur `http://localhost:3000/studio`.
+Le **Studio Sanity** se lance séparément du site et est hébergé sur le cloud Sanity :
+
+```bash
+npm run studio            # Studio en local (http://localhost:3333)
+npm run studio:build      # Build du bundle studio (dist/)
+npm run studio:deploy     # Déploie le studio sur Sanity cloud
+```
+
+**Studio hébergé :** [https://andysiwa-studio.sanity.studio](https://andysiwa-studio.sanity.studio)
 
 ## ☁️ Déploiement
 
