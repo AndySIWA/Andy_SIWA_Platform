@@ -1,149 +1,115 @@
-# Andy SIWA - Portfolio Ingénieur Électricien Innovant
+# Andy SIWA — Portfolio Ingénieur Électricien & Développeur Digital
 
-Portfolio professionnel d'Andy SIWA, ingénieur électricien spécialisé en électrotechnique, électronique et informatique.
+Portfolio professionnel d'Andy SIWA, ingénieur électricien spécialisé en coordination technique, réseaux HTA/BT, domotique IoT et développement web moderne.
 
 ## 🚀 Aperçu
 
-Ce site web présente le portfolio professionnel d'Andy SIWA avec un design moderne et interactif mettant en valeur ses compétences, projets et expériences dans le domaine de l'ingénierie électrique.
+Plateforme web interactive (Next.js + Sanity CMS) présentant réalisations, blog, marketplace de produits digitaux et idées de projets futurs.
 
-**Site en ligne :** [https://andysiwa.netlify.app/](https://andysiwa.netlify.app/)
+**Site en ligne :** [https://andysiwa.com](https://andysiwa.com)
 
 ## ✨ Fonctionnalités
 
-- **Design moderne et responsive** : Interface adaptative pour tous les appareils (desktop, tablette, mobile)
-- **Animations interactives** : 
-  - Système de particules animées sur canvas HTML5
-  - Effets de révélation au défilement (scroll reveal)
-  - Animations fluides des éléments d'interface
-- **Navigation intuitive** : Menu de navigation fixe avec version mobile
-- **Sections complètes** :
-  - Accueil avec présentation dynamique
-  - À propos avec informations personnelles
-  - Services professionnels
-  - Compétences techniques détaillées
-  - Projets réalisés
-  - Expérience professionnelle
-  - Formulaire de contact
-- **Optimisations** :
-  - Chargement différé des images (lazy loading)
-  - Préchargement des ressources critiques
-  - Intégration de polices Google Fonts optimisée
+- **Accueil** avec photo de profil animée (flottement, anneau lumineux rotatif, halo pulsant) et statistiques
+- **Réalisations & Projets** — études HTA/BT, domotique, ingénierie (pages détaillées par slug)
+- **Blog & Articles** — articles techniques avec partage (LinkedIn, X, WhatsApp, Facebook, copie de lien)
+- **Marketplace Digitale** — produits digitaux vendus via Chariow
+- **Idées & Projets futurs** — roadmap avec statuts (concept / étude / prototype / bientôt)
+- **Studio Sanity** — CMS embarqué pour gérer tout le contenu (projets, posts, produits, idées, profil)
+- **Fond animé** — particules connectées sur canvas (style constellation) + halos néon
+- **Design high-tech premium** — thème sombre, néon cyan/bleu/violet, typographies Inter / Orbitron / Rajdhani
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Technologies
 
-### Frontend
-- **HTML5** - Structure sémantique du contenu
-- **CSS3** - Styles modernes avec variables CSS, Flexbox et Grid
-- **JavaScript (Vanilla)** - Interactivité et animations sans dépendances externes
-
-### Bibliothèques & Ressources Externes
-- **Font Awesome 6.5.1** - Icônes vectorielles
-- **Google Fonts** :
-  - Inter (texte principal)
-  - Orbitron (titres futuristes)
-  - Rajdhani (éléments techniques)
+- **Next.js 15** (App Router, Server Components)
+- **React 19**
+- **Sanity CMS** + next-sanity (Studio embarqué)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** — animations
+- **lucide-react** + **@icons-pack/react-simple-icons** — icônes
 
 ## 📁 Structure du Projet
 
 ```
-portfolio-andy-siwa/
-├── index.html          # Page principale
-├── css/
-│   └── style.css       # Feuilles de styles complète
-├── js/
-│   └── script.js       # Logique JavaScript et animations
-├── img/
-│   ├── image_1.png     # Logo VoltiSmart
-│   ├── image_2.jpg     # Photo de profil principale
-│   ├── Andy_Bureau.jpg # Photo au bureau
-│   ├── image_4.png     # Image projet/démonstration
-│   ├── image_5.jpg     # Image projet/démonstration
-│   ├── image_6.jpg     # Image projet/démonstration
-│   ├── image_7.png     # Image projet/démonstration
-│   └── image_8.png     # Image projet/démonstration
-├── .vscode/            # Configuration VS Code
-└── README.md           # Ce fichier
+├── src/
+│   ├── app/                   # Pages (App Router)
+│   │   ├── layout.tsx         # Layout racine (fond animé, nav, footer)
+│   │   ├── page.tsx           # Accueil (hero, services, projets, blog, produits, idées)
+│   │   ├── realisations/      # Liste + détail [slug]
+│   │   ├── blog/              # Liste + détail [slug]
+│   │   ├── marketplace/       # Produits digitaux
+│   │   ├── idees/             # Idées & projets futurs
+│   │   ├── studio/            # Studio Sanity embarqué
+│   │   └── globals.css        # Thème, mesh bg, cartes/liens cyber
+│   ├── components/            # AvatarFrame, ParticleBackground, Navbar, Footer, ShareButtons, LinkedinIcon
+│   └── sanity/
+│       ├── client.ts          # Client Sanity
+│       ├── env.ts             # Variables d'environnement
+│       ├── schemas/           # Schémas (project, post, product, idea, profile)
+│       └── lib/data.ts        # Fetch GROQ + fallback mock data
+├── public/img/                # Images statiques
+├── img/                       # Images legacy
+├── _legacy/                   # Ancien site statique (HTML/CSS/JS)
+├── sanity.config.ts           # Config Sanity Studio
+├── netlify.toml               # Config Netlify
+└── package.json
 ```
-
-## 🎨 Personnalisation
-
-### Couleurs Principales
-Le site utilise un thème sombre avec des couleurs néon :
-- `--electric-blue: #00D4FF` - Bleu électrique
-- `--plasma-purple: #B829F7` - Violet plasma
-- `--neon-green: #39FF14` - Vert néon
-- `--safety-orange: #FF6E00` - Orange sécurité
-- `--cyber-yellow: #FFE135` - Jaune cyber
-
-### Modification du Contenu
-Pour personnaliser le portfolio :
-1. Éditez `index.html` pour modifier les textes et informations
-2. Ajustez `css/style.css` pour changer le design et les couleurs
-3. Modifiez `js/script.js` pour adapter les animations et interactions
-
-## 📞 Contact
-
-- **Nom** : Andy SIWA
-- **Localisation** : Yaoundé, Cameroun
-- **WhatsApp** : [+237 652 48 16 43](https://wa.me/237652481643)
-- **LinkedIn** : [andy-siwa-180283199](https://www.linkedin.com/in/andy-siwa-180283199/)
-- **GitHub** : [AndySIWA](https://github.com/AndySIWA/)
 
 ## 🚀 Démarrage Rapide
 
 ### Prérequis
-- Un navigateur web moderne (Chrome, Firefox, Safari, Edge)
-- Aucun serveur ou build tool nécessaire - le site fonctionne en statique
+
+- Node.js ≥ 18
+- npm
 
 ### Installation
 
-1. Clonez le dépôt :
 ```bash
 git clone <url-du-depot>
-cd portfolio-andy-siwa
+cd Portfolio-Andy-SIWA-V2
+npm install
 ```
 
-2. Ouvrez simplement `index.html` dans votre navigateur :
+### Variables d'environnement
+
+Copiez `.env.example` vers `.env.local` et renseignez vos identifiants Sanity :
+
 ```bash
-# Sur macOS
-open index.html
-
-# Sur Windows
-start index.html
-
-# Sur Linux
-xdg-open index.html
+NEXT_PUBLIC_SANITY_PROJECT_ID=...
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-02-10
+SANITY_API_READ_TOKEN=...   # optionnel
 ```
 
-Ou utilisez un serveur local pour une meilleure expérience :
+> Sans configuration Sanity valide, le site fonctionne en **mode démo** avec des données mock (voir `src/sanity/lib/data.ts`).
+
+### Lancement
+
 ```bash
-# Avec Python 3
-python -m http.server 8000
-
-# Avec Node.js (npx)
-npx serve
+npm run dev       # Développement (http://localhost:3000)
+npm run build     # Build de production
+npm run start     # Production (après build)
+npm run lint      # Lint
 ```
 
-Puis accédez à `http://localhost:8000`
+Le **Studio Sanity** est accessible sur `http://localhost:3000/studio`.
 
-## 📱 Support Navigateurs
+## ☁️ Déploiement
 
-- Chrome (dernière version)
-- Firefox (dernière version)
-- Safari (dernière version)
-- Edge (dernière version)
-- Opera (dernière version)
+- **Netlify** — configuré dans `netlify.toml` (build : `npm run build`, publish : `.next`, via `@netlify/plugin-nextjs`, Node 20)
+- Configurable sur **Vercel** sans modification
 
-## 📄 Licence
+## 💡 Note : Mode Démo vs CMS
+
+Les fetchs vers Sanity basculent automatiquement sur des **données mock** si `NEXT_PUBLIC_SANITY_PROJECT_ID` est absent ou invalide. Branche ainsi le site au CMS : renseigne les variables d'environnement, puis crée du contenu dans le Studio (`/studio`).
+
+## 📞 Contact
+
+- **Location** : Yaoundé, Cameroun
+- **GitHub** : [AndySIWA](https://github.com/AndySIWA/)
+- **LinkedIn** : [andy-siwa-180283199](https://www.linkedin.com/in/andy-siwa-180283199/)
+
+## ⚖️ Licence
 
 Ce projet est la propriété intellectuelle d'Andy SIWA. Tous droits réservés.
-
-## 🙏 Remerciements
-
-- Google Fonts pour les typographies
-- Font Awesome pour les icônes
-- La communauté open-source pour les outils et ressources
-
----
-
-**Développé par Andy SIWA** ⚡ | Ingénieur Électricien Innovant
