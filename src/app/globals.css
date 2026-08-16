@@ -1,0 +1,106 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg-dark: #0b0f19;
+  --bg-dark-accent: #111827;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --cyan-glow: rgba(0, 240, 255, 0.25);
+  --purple-glow: rgba(139, 92, 246, 0.25);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Background Glowing Mesh Circles */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mesh-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+}
+
+.circle-1 {
+  width: 500px;
+  height: 500px;
+  background: #00f0ff;
+  top: -100px;
+  left: -100px;
+}
+
+.circle-2 {
+  width: 600px;
+  height: 600px;
+  background: #8b5cf6;
+  bottom: 10%;
+  right: -150px;
+}
+
+.circle-3 {
+  width: 400px;
+  height: 400px;
+  background: #3b82f6;
+  top: 40%;
+  left: 30%;
+}
+
+/* Futuristic Cyber Cards */
+.cyber-card {
+  /* background: rgba(19, 37, 50, 0.7); */
+  background: rgba(14, 46, 63, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cyber-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.cyber-button-primary {
+  background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 100%);
+  color: #0b0f19;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+.cyber-button-primary:hover {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7);
+  transform: scale(1.02);
+}
+
+.cyber-button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f3f4f6;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.cyber-button-secondary:hover {
+  border-color: #00f0ff;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.08);
+}
