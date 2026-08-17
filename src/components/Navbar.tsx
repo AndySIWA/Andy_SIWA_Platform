@@ -3,16 +3,11 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Zap, Menu, X, ShoppingBag, BookOpen, Lightbulb, FolderGit2, UserCheck, Shield } from 'lucide-react'
+import { Zap, Menu, X, ShoppingBag, BookOpen, Lightbulb, FolderGit2, UserCheck } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-
-  // Hide Navbar on Sanity Studio route
-  if (pathname?.startsWith('/studio')) {
-    return null
-  }
 
   const navLinks = [
     { name: 'Accueil', href: '/' },
@@ -75,14 +70,6 @@ export default function Navbar() {
 
         {/* CTA Actions */}
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href="/studio"
-            className="text-xs font-mono text-gray-400 hover:text-cyan px-3 py-1.5 rounded-md border border-white/10 hover:border-cyan/40 transition-colors flex items-center gap-1.5"
-            title="Accès Sanity Admin CMS"
-          >
-            <Shield className="w-3.5 h-3.5 text-cyan" />
-            <span>Sanity Studio</span>
-          </Link>
           <a
             href="https://wa.me/237691234567" // WhatsApp contact or mailto
             target="_blank"
@@ -132,13 +119,6 @@ export default function Navbar() {
             )
           })}
           <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
-            <Link
-              href="/studio"
-              onClick={() => setIsOpen(false)}
-              className="text-center py-2 text-xs font-mono text-cyan bg-cyan/10 rounded-lg border border-cyan/30"
-            >
-              🔒 Accès Sanity CMS Studio
-            </Link>
             <a
               href="https://wa.me/237691234567"
               target="_blank"

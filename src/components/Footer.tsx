@@ -2,18 +2,11 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Zap, Mail, Heart } from 'lucide-react'
 import { SiGithub, SiWhatsapp } from '@icons-pack/react-simple-icons'
 import { LinkedinIcon } from './LinkedinIcon'
 
 export default function Footer() {
-  const pathname = usePathname()
-
-  if (pathname?.startsWith('/studio')) {
-    return null
-  }
-
   return (
     <footer className="relative bg-dark-900 border-t border-white/10 pt-16 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
