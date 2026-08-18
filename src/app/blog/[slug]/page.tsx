@@ -106,26 +106,42 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
       <ShareButtons title={post.title} url={shareUrl} />
 
       {/* Body Content */}
-      <div className="cyber-card p-8 sm:p-10 rounded-2xl space-y-6 text-gray-200 text-base leading-relaxed">
-        <p className="text-lg font-medium text-cyan border-l-4 border-cyan pl-4 py-1 bg-cyan/5 rounded-r">
-          {post.excerpt}
-        </p>
+      {post.body ? (
+        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-neon-cyan">
+          <div className="flex items-center justify-between px-4 py-2 bg-dark-800/90 border-b border-white/10">
+            <span className="text-xs font-mono text-cyan uppercase tracking-wider">
+              Démo interactive — page autonome (HTML/CSS/JS)
+            </span>
+          </div>
+          <iframe
+            srcDoc={post.body}
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+            title={`Démo interactive — ${post.title}`}
+            className="w-full h-[80vh] border-0 bg-white"
+          />
+        </div>
+      ) : (
+        <div className="cyber-card p-8 sm:p-10 rounded-2xl space-y-6 text-gray-200 text-base leading-relaxed">
+          <p className="text-lg font-medium text-cyan border-l-4 border-cyan pl-4 py-1 bg-cyan/5 rounded-r">
+            {post.excerpt}
+          </p>
 
-        <p>
-          Dans le cadre d&apos;installations électriques complexes ou de systèmes domotiques communicants, la rigueur méthodologique est essentielle. Chaque choix d&apos;appareillage, de section de câble ou de protocole de communication impacte directement la continuité de service et la sécurité des utilisateurs.
-        </p>
+          <p>
+            Dans le cadre d&apos;installations électriques complexes ou de systèmes domotiques communicants, la rigueur méthodologique est essentielle. Chaque choix d&apos;appareillage, de section de câble ou de protocole de communication impacte directement la continuité de service et la sécurité des utilisateurs.
+          </p>
 
-        <h3 className="font-display text-xl font-bold text-white pt-4">Points clés à retenir</h3>
-        <ul className="list-disc list-inside space-y-2 text-gray-300">
-          <li>Analyse préalable des contraintes d&apos;exploitation.</li>
-          <li>Validation des calculs conformément à la norme NFC 15-100.</li>
-          <li>Mise en œuvre d&apos;une supervision pour anticiper les défaillances.</li>
-        </ul>
+          <h3 className="font-display text-xl font-bold text-white pt-4">Points clés à retenir</h3>
+          <ul className="list-disc list-inside space-y-2 text-gray-300">
+            <li>Analyse préalable des contraintes d&apos;exploitation.</li>
+            <li>Validation des calculs conformément à la norme NFC 15-100.</li>
+            <li>Mise en œuvre d&apos;une supervision pour anticiper les défaillances.</li>
+          </ul>
 
-        <p>
-          Ce contenu peut être enrichi et mis à jour en temps réel directement depuis le Studio Sanity.
-        </p>
-      </div>
+          <p>
+            Ce contenu peut être enrichi et mis à jour en temps réel directement depuis le Studio Sanity.
+          </p>
+        </div>
+      )}
 
       {/* Tags */}
       {post.tags && post.tags.length > 0 && (

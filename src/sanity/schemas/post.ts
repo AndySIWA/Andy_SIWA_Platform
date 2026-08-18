@@ -70,15 +70,10 @@ export default defineType({
     }),
     defineField({
       name: 'body',
-      title: 'Contenu de l\'article',
-      type: 'array',
-      of: [
-        { type: 'block' },
-        {
-          type: 'image',
-          options: { hotspot: true },
-        },
-      ],
+      title: 'Code HTML + CSS + JS (page SPA single-file)',
+      type: 'text',
+      rows: 30,
+      description: 'Collez ici le code complet d\'une page web autonome (HTML + CSS + JS dans un seul fichier). Elle sera rendue en plein écran dans l\'article.',
     }),
   ],
 })

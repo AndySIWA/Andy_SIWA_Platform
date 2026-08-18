@@ -10,7 +10,7 @@ export interface Post {
   category: string
   tags?: string[]
   mainImageUrl?: string
-  body?: any
+  body?: string
 }
 
 export interface Project {
@@ -95,6 +95,43 @@ export const MOCK_POSTS: Post[] = [
     category: 'Génie Électrique',
     tags: ['HTA/BT', 'Sélectivité', 'Protection Électrique'],
     mainImageUrl: '/img/image_5.jpg',
+    body: `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sélectivité HTA/BT — Démo interactive</title>
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; background: #0b1220; color: #e2e8f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .card { background: #111a2e; border: 1px solid #22d3ee; border-radius: 16px; padding: 40px; max-width: 420px; text-align: center; box-shadow: 0 0 40px rgba(34, 211, 238, .25); }
+  h1 { font-size: 1.3rem; color: #22d3ee; margin-bottom: 12px; }
+  p { color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
+  button { background: #22d3ee; color: #0b1220; border: 0; border-radius: 10px; padding: 12px 24px; font-weight: 700; cursor: pointer; font-size: 1rem; }
+  button:hover { background: #67e8f9; }
+  .count { font-size: 2.5rem; font-weight: 800; color: #22d3ee; margin: 16px 0 4px; }
+  .bar { height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden; margin-top: 16px; }
+  .fill { height: 100%; width: 0; background: linear-gradient(90deg, #22d3ee, #a78bfa); transition: width .3s; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Sélectivité des protections</h1>
+  <p>Chaque déclenchement est mesuré : cliquez pour simuler une contrainte sur le réseau.</p>
+  <div class="count" id="count">0</div>
+  <div class="bar"><div class="fill" id="fill"></div></div>
+  <button onclick="trigger()">Simuler une contrainte</button>
+</div>
+<script>
+  let n = 0
+  function trigger() {
+    n = (n + 1) % 6
+    document.getElementById('count').textContent = n + ' déclenchement' + (n > 1 ? 's' : '')
+    document.getElementById('fill').style.width = (n / 5) * 100 + '%'
+  }
+</script>
+</body>
+</html>`,
   },
   {
     _id: 'post-2',
