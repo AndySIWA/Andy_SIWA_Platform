@@ -11,6 +11,7 @@ export interface Post {
   tags?: string[]
   mainImageUrl?: string
   body?: string
+  gallery?: string[]
 }
 
 export interface Project {

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, Clock, Calendar, Tag, User } from 'lucide-react'
 import { getPostBySlug, getPosts } from '@/sanity/lib/data'
 import ShareButtons from '@/components/ShareButtons'
+import HtmlArticleRenderer from '@/components/HtmlArticleRenderer'
 
 export const revalidate = 60
 
@@ -107,19 +108,7 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
 
       {/* Body Content */}
       {post.body ? (
-        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-neon-cyan">
-          <div className="flex items-center justify-between px-4 py-2 bg-dark-800/90 border-b border-white/10">
-            <span className="text-xs font-mono text-cyan uppercase tracking-wider">
-              Démo interactive — page autonome (HTML/CSS/JS)
-            </span>
-          </div>
-          <iframe
-            srcDoc={post.body}
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
-            title={`Démo interactive — ${post.title}`}
-            className="w-full h-[80vh] border-0 bg-white"
-          />
-        </div>
+        <HtmlArticleRenderer html={post.body} />
       ) : (
         <div className="cyber-card p-8 sm:p-10 rounded-2xl space-y-6 text-gray-200 text-base leading-relaxed">
           <p className="text-lg font-medium text-cyan border-l-4 border-cyan pl-4 py-1 bg-cyan/5 rounded-r">
