@@ -75,5 +75,17 @@ export default defineType({
       rows: 30,
       description: 'Collez ici le code complet d\'une page web autonome (HTML + CSS + JS dans un seul fichier). Elle sera rendue en plein écran dans l\'article.',
     }),
+    defineField({
+      name: 'images',
+      title: 'Images de l\'article',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+        },
+      ],
+      validation: (Rule) => Rule.max(5),
+    }),
   ],
 })

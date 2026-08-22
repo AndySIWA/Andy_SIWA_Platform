@@ -11,7 +11,7 @@ export interface Post {
   tags?: string[]
   mainImageUrl?: string
   body?: string
-  gallery?: string[]
+  images?: string[]
 }
 
 export interface Project {
@@ -296,7 +296,8 @@ export async function getPosts(): Promise<Post[]> {
       readTime,
       category,
       tags,
-      "mainImageUrl": mainImage.asset->url
+      "mainImageUrl": mainImage.asset->url,
+      "images": images[]
     }`)
     if (data && data.length > 0) return data
   } catch (err) {
@@ -318,7 +319,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       category,
       tags,
       "mainImageUrl": mainImage.asset->url,
-      body
+      "images": images[]
     }`, { slug })
     if (data) return data
   } catch (err) {
