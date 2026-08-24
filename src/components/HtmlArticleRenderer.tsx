@@ -69,7 +69,7 @@ export default function HtmlArticleRenderer({ html }: HtmlArticleRendererProps) 
   return (
     <div
       ref={containerRef}
-      className="html-article-content w-full rounded-2xl overflow-hidden shadow-2xl transition-all"
+      className="html-article-content w-full p-0"
       dangerouslySetInnerHTML={{ __html: processedHtml }}
     />
   )

@@ -37,6 +37,13 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'gallery',
+      title: 'Galerie d\'images',
+      type: 'array',
+      of: [{ type: 'image' }],
+      description: 'Images à afficher en carrousel au début de l\'article',
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Date de publication',
       type: 'datetime',
@@ -74,18 +81,6 @@ export default defineType({
       type: 'text',
       rows: 30,
       description: 'Collez ici le code complet d\'une page web autonome (HTML + CSS + JS dans un seul fichier). Elle sera rendue en plein écran dans l\'article.',
-    }),
-    defineField({
-      name: 'images',
-      title: 'Images de l\'article',
-      type: 'array',
-      of: [
-        {
-          type: 'image',
-          options: { hotspot: true },
-        },
-      ],
-      validation: (Rule) => Rule.max(5),
     }),
   ],
 })

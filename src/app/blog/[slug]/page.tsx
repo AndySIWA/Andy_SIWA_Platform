@@ -103,6 +103,20 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
         </div>
       )}
 
+      {/* Gallery Carousel */}
+      {post.gallery && post.gallery.length > 0 && (
+        <div className="grid grid-cols-2 gap-4 my-6">
+          {post.gallery.map((image, i) => (
+            <img
+              key={i}
+              src={image.asset?.url}
+              alt={image.alt || ''}
+              className="w-full h-48 object-cover rounded-md transition-transform hover:scale-105"
+            />
+          ))}
+        </div>
+      )}
+
       {/* Social Share Component */}
       <ShareButtons title={post.title} url={shareUrl} />
 
