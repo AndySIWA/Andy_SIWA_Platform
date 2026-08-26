@@ -9,9 +9,9 @@ export interface Post {
   readTime: string
   category: string
   tags?: string[]
-mainImageUrl?: string
-  gallery?: any[]
+  mainImageUrl?: string
   body?: string
+  gallery?: string[]
 }
 
 export interface Project {
@@ -96,6 +96,7 @@ export const MOCK_POSTS: Post[] = [
     category: 'Génie Électrique',
     tags: ['HTA/BT', 'Sélectivité', 'Protection Électrique'],
     mainImageUrl: '/img/image_5.jpg',
+    galleryUrls: ['/img/image_5.jpg', '/img/image_4.png', '/img/image_6.jpg'],
     body: `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -296,7 +297,8 @@ export async function getPosts(): Promise<Post[]> {
       readTime,
       category,
       tags,
-      "mainImageUrl": mainImage.asset->url
+      "mainImageUrl": mainImage.asset->url,
+      "galleryUrls": gallery[].asset->url
     }`)
     if (data && data.length > 0) return data
   } catch (err) {
@@ -318,7 +320,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       category,
       tags,
       "mainImageUrl": mainImage.asset->url,
-      "gallery": gallery,
+      "galleryUrls": gallery[].asset->url,
       body
     }`, { slug })
     if (data) return data

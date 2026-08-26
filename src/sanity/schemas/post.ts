@@ -37,13 +37,6 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'gallery',
-      title: 'Galerie d\'images',
-      type: 'array',
-      of: [{ type: 'image' }],
-      description: 'Images à afficher en carrousel au début de l\'article',
-    }),
-    defineField({
       name: 'publishedAt',
       title: 'Date de publication',
       type: 'datetime',
@@ -74,6 +67,12 @@ export default defineType({
       title: 'Tags',
       type: 'array',
       of: [{ type: 'string' }],
+    }),
+    defineField({
+      name: 'gallery',
+      title: 'Galerie d\'images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
     }),
     defineField({
       name: 'body',
