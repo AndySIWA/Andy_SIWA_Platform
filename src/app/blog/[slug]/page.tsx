@@ -95,12 +95,16 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
       </div>
 
       {/* Full-Width Gallery Carousel */}
-      {((post.galleryUrls && post.galleryUrls.length > 0) || post.mainImageUrl) && (
-        <ImageCarousel 
-          images={post.galleryUrls && post.galleryUrls.length > 0 ? post.galleryUrls : [post.mainImageUrl]} 
-          alt={post.title} 
-        />
-      )}
+      {(() => {
+        const validGallery = post.galleryUrls?.filter((url): url is string => !!url) ?? []
+        const images = validGallery.length > 0 ? validGallery : [post.mainImageUrl]
+        return images.length > 0 ? (
+          <ImageCarousel 
+            images={images as string[]} 
+            alt={post.title} 
+          />
+        ) : null
+      })()}
 
       <div className="w-full max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Social Share Component */}

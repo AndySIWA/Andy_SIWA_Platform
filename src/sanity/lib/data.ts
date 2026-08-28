@@ -11,7 +11,7 @@ export interface Post {
   tags?: string[]
   mainImageUrl?: string
   body?: string
-  gallery?: string[]
+  galleryUrls?: string[]
 }
 
 export interface Project {
@@ -22,6 +22,7 @@ export interface Project {
   category: string
   techStack?: string[]
   mainImageUrl?: string
+  galleryUrls?: string[]
   demoUrl?: string
   githubUrl?: string
   featured?: boolean
@@ -36,6 +37,7 @@ export interface Product {
   chariowLink: string
   category: string
   coverImageUrl?: string
+  galleryUrls?: string[]
   features?: string[]
 }
 
@@ -58,6 +60,7 @@ export const MOCK_PROJECTS: Project[] = [
     category: 'electrotechnique',
     techStack: ['Réseaux HTA/BT', 'AUTOCAD Electrical', 'Sélectivité', 'Norme NFC 15-100'],
     mainImageUrl: '/img/image_4.png',
+    galleryUrls: ['/img/image_4.png', '/img/image_5.jpg', '/img/image_6.jpg'],
     demoUrl: '#',
     featured: true,
   },
@@ -69,6 +72,7 @@ export const MOCK_PROJECTS: Project[] = [
     category: 'domotique',
     techStack: ['ESP32', 'MQTT', 'Next.js', 'WebSockets', 'Modbus'],
     mainImageUrl: '/img/image_8.png',
+    galleryUrls: ['/img/image_8.png', '/img/image_7.png'],
     demoUrl: '#',
     featured: true,
   },
@@ -80,6 +84,7 @@ export const MOCK_PROJECTS: Project[] = [
     category: 'ingenierie',
     techStack: ['Caneco BT', 'Coordination Chantier', 'Bilan de Puissance'],
     mainImageUrl: '/img/image_6.jpg',
+    galleryUrls: ['/img/image_6.jpg', '/img/image_5.jpg'],
     demoUrl: '#',
     featured: true,
   },
@@ -169,6 +174,7 @@ export const MOCK_PRODUCTS: Product[] = [
     chariowLink: 'https://chariow.com/p/bilan-puissance-excel',
     category: 'template',
     coverImageUrl: '/img/image_4.png',
+    galleryUrls: ['/img/image_4.png', '/img/image_5.jpg'],
     features: [
       'Calculs automatiques normalisés NFC 15-100',
       'Matrice des facteurs de foisonnement',
@@ -184,6 +190,7 @@ export const MOCK_PRODUCTS: Product[] = [
     chariowLink: 'https://chariow.com/p/guide-schemas-domotiques',
     category: 'ebook',
     coverImageUrl: '/img/image_8.png',
+    galleryUrls: ['/img/image_8.png', '/img/image_7.png'],
     features: [
       'Plus de 30 schémas d\'installation commentés',
       'Exemples de code ESP32 & Home Assistant',
@@ -199,6 +206,7 @@ export const MOCK_PRODUCTS: Product[] = [
     chariowLink: 'https://chariow.com/p/pack-cad-electrical',
     category: 'schema',
     coverImageUrl: '/img/image_2.jpg',
+    galleryUrls: ['/img/image_2.jpg', '/img/image_3.jpg'],
     features: [
       'Conforme aux normes CEI / NFC',
       'Format vectoriel DWG, DXF & PNG',
@@ -251,6 +259,7 @@ export async function getProjects(): Promise<Project[]> {
       category,
       techStack,
       "mainImageUrl": mainImage.asset->url,
+      "galleryUrls": gallery[].asset->url,
       demoUrl,
       githubUrl,
       featured
@@ -274,6 +283,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
       category,
       techStack,
       "mainImageUrl": mainImage.asset->url,
+      "galleryUrls": gallery[].asset->url,
       demoUrl,
       githubUrl,
       featured
@@ -342,6 +352,7 @@ export async function getProducts(): Promise<Product[]> {
       chariowLink,
       category,
       "coverImageUrl": coverImage.asset->url,
+      "galleryUrls": gallery[].asset->url,
       features
     }`)
     if (data && data.length > 0) return data

@@ -46,6 +46,12 @@ export default defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: 'gallery',
+      title: 'Galerie d\'images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+    }),
+    defineField({
       name: 'chariowLink',
       title: 'Lien d\'achat Chariow',
       type: 'url',
