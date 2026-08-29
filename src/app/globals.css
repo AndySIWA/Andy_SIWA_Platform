@@ -319,33 +319,17 @@ body {
   min-height: 100vh;
 }
 
-/* Light mesh background for blog */
-.blog-light .mesh-bg {
-  opacity: 0.35;
+/* Full tech network overlay - visible in both modes */
+.blog-light .tech-network {
+  opacity: 0.4;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
 }
 
-.blog-light .mesh-bg .circle-1 {
-  background: #67e8f9;
-  width: 600px;
-  height: 600px;
-  filter: blur(160px);
-  opacity: 0.3;
-}
-
-.blog-light .mesh-bg .circle-2 {
-  background: #c4b5fd;
-  width: 500px;
-  height: 500px;
-  filter: blur(160px);
-  opacity: 0.25;
-}
-
-.blog-light .mesh-bg .circle-3 {
-  background: #93c5fd;
-  width: 450px;
-  height: 450px;
-  filter: blur(140px);
-  opacity: 0.2;
+/* Mesh circles at full visibility - global CSS applies */
+.blog-light .mesh-bg .mesh-circle {
+  opacity: 0.12;
 }
 
 /* Blog hero section with subtle gradient */
