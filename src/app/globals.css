@@ -31,35 +31,78 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.15;
+  opacity: 0.12;
+  animation: float-glow 20s ease-in-out infinite;
+}
+
+@keyframes float-glow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
 }
 
 .circle-1 {
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   background: #00f0ff;
   top: -100px;
   left: -100px;
+  animation-delay: 0s;
 }
 
 .circle-2 {
-  width: 600px;
-  height: 600px;
+  width: 650px;
+  height: 650px;
   background: #8b5cf6;
   bottom: 10%;
   right: -150px;
+  animation-delay: 5s;
 }
 
 .circle-3 {
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   background: #3b82f6;
   top: 40%;
   left: 30%;
+  animation-delay: 10s;
 }
 
-/* Futuristic Cyber Cards */
-.cyber-card {
+/* Tech network lines - subtle grid overlay */
+.tech-network {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at 30% 20%, transparent 40%, black 50%),
+    radial-gradient(ellipse at 70% 80%, transparent 40%, black 50%);
+  mask-size: 200px 200px;
+  mask-repeat: no-repeat;
+  opacity: 0.4;
+}
+
+/* Floating tech nodes */
+.tech-node {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #06b6d4;
+  box-shadow: 0 0 8px #06b6d4;
+  animation: node-float 8s ease-in-out infinite;
+}
+
+@keyframes node-float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+  50% { transform: translateY(-30px) translateX(20px); opacity: 1; }
+}
+
+/* HTML Article Content - Scoped styles for injected SPA content */
+.html-article-content {
   /* background: rgba(19, 37, 50, 0.7); */
   background: rgba(14, 46, 63, 0.7);
   backdrop-filter: blur(16px);
@@ -276,9 +319,9 @@ body {
   min-height: 100vh;
 }
 
-/* Light mesh background for blog — more visible to complement particles */
+/* Light mesh background for blog */
 .blog-light .mesh-bg {
-  opacity: 0.45;
+  opacity: 0.35;
 }
 
 .blog-light .mesh-bg .circle-1 {
@@ -286,7 +329,7 @@ body {
   width: 600px;
   height: 600px;
   filter: blur(160px);
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
 .blog-light .mesh-bg .circle-2 {
@@ -294,7 +337,7 @@ body {
   width: 500px;
   height: 500px;
   filter: blur(160px);
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .blog-light .mesh-bg .circle-3 {
@@ -302,7 +345,7 @@ body {
   width: 450px;
   height: 450px;
   filter: blur(140px);
-  opacity: 0.25;
+  opacity: 0.2;
 }
 
 /* Blog hero section with subtle gradient */
@@ -588,4 +631,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Particles handled by component — no forced override needed */
+/* Override particle canvas opacity for light blog */
+.blog-light canvas {
+  opacity: 0.25 !important;
+}
