@@ -276,9 +276,9 @@ body {
   min-height: 100vh;
 }
 
-/* Light mesh background for blog */
+/* Light mesh background for blog — more visible to complement particles */
 .blog-light .mesh-bg {
-  opacity: 0.35;
+  opacity: 0.45;
 }
 
 .blog-light .mesh-bg .circle-1 {
@@ -286,7 +286,7 @@ body {
   width: 600px;
   height: 600px;
   filter: blur(160px);
-  opacity: 0.3;
+  opacity: 0.35;
 }
 
 .blog-light .mesh-bg .circle-2 {
@@ -294,7 +294,7 @@ body {
   width: 500px;
   height: 500px;
   filter: blur(160px);
-  opacity: 0.25;
+  opacity: 0.3;
 }
 
 .blog-light .mesh-bg .circle-3 {
@@ -302,7 +302,7 @@ body {
   width: 450px;
   height: 450px;
   filter: blur(140px);
-  opacity: 0.2;
+  opacity: 0.25;
 }
 
 /* Blog hero section with subtle gradient */
@@ -588,7 +588,4 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Override particle canvas opacity for light blog */
-.blog-light canvas {
-  opacity: 0.25 !important;
-}
+/* Particles handled by component — no forced override needed */
