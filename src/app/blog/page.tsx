@@ -83,15 +83,17 @@ export default async function BlogPage() {
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute top-3 left-3 z-10">
-                  <span className="blog-badge text-[10px] px-2 py-0.5">
-                    {post.category}
-                  </span>
-                </div>
               </div>
 
               {/* Card Content */}
               <div className="p-5 flex flex-col flex-1">
+                {/* Category badge */}
+                <div className="mb-2">
+                  <span className="blog-badge text-[10px] px-2 py-0.5">
+                    {post.category}
+                  </span>
+                </div>
+
                 {/* Meta row */}
                 <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-2">
                   <span className="blog-meta">
