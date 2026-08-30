@@ -243,7 +243,7 @@ export const MOCK_IDEAS: Idea[] = [
 ]
 
 function hasValidSanityConfig(): boolean {
-  const pId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  const pId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_STUDIO_PROJECT_ID
   return Boolean(pId && pId !== 'your-sanity-project-id' && pId !== 'demo-id')
 }
 
