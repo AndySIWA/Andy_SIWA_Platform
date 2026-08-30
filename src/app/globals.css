@@ -404,7 +404,8 @@ body {
 .blog-card-img {
   position: relative;
   overflow: hidden;
-  height: 120px;
+  height: 150px;
+  aspect-ratio: 16/9;
 }
 
 .blog-card-img::after {
