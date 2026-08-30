@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { BookOpen, Calendar, Clock, ArrowRight, Sparkles } from 'lucide-react'
+import { BookOpen, Calendar, Clock, Sparkles } from 'lucide-react'
 import { getPosts } from '@/sanity/lib/data'
 import BlogMeshBackground from '@/components/BlogMeshBackground'
 
@@ -67,10 +67,11 @@ export default async function BlogPage() {
 
       {/* Articles Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
-            <article
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {posts.map((post) => (
+            <Link
               key={post._id}
+              href={`/blog/${post.slug.current}`}
               className="blog-card flex flex-col group"
             >
               {/* Card Image */}
@@ -80,66 +81,56 @@ export default async function BlogPage() {
                   alt={post.title}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="blog-badge">
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="blog-badge text-[10px] px-2 py-0.5">
                     {post.category}
                   </span>
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-5 flex flex-col flex-1">
                 {/* Meta row */}
-                <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-2">
                   <span className="blog-meta">
-                    <Calendar className="w-3.5 h-3.5" />
+                    <Calendar className="w-3 h-3" />
                     {new Date(post.publishedAt).toLocaleDateString('fr-FR', {
                       day: 'numeric',
                       month: 'short',
                       year: 'numeric',
                     })}
                   </span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                  <span className="w-0.5 h-0.5 rounded-full bg-slate-300"></span>
                   <span className="blog-meta">
-                    <Clock className="w-3.5 h-3.5" />
+                    <Clock className="w-3 h-3" />
                     {post.readTime}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-display font-bold text-xl text-slate-800 group-hover:text-cyan-600 transition-colors leading-snug mb-3">
-                  <Link href={`/blog/${post.slug.current}`} className="stretched-link">
-                    {post.title}
-                  </Link>
+                <h2 className="font-display font-bold text-[15px] text-slate-800 group-hover:text-cyan-600 transition-colors leading-snug mb-2 line-clamp-2">
+                  {post.title}
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-sm text-slate-500 leading-relaxed line-clamp-3 mb-4">
+                <p className="text-xs text-slate-500 leading-relaxed line-clamp-3 mb-3">
                   {post.excerpt}
                 </p>
 
                 {/* Tags */}
                 {post.tags && post.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mb-4 mt-auto">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="blog-tag">
+                  <div className="flex flex-wrap gap-1 mt-auto">
+                    {post.tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className="blog-tag text-[10px] px-1.5 py-0">
                         #{tag}
                       </span>
                     ))}
                   </div>
                 )}
-
-                {/* Read More */}
-                <div className="pt-4 border-t border-slate-100 mt-auto">
-                  <span className="blog-read-more">
-                    <span>Lire l&apos;article</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
