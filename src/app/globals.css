@@ -312,60 +312,19 @@ body {
    ============================================ */
 
 .blog-light {
-  background: #f1f5f9;
-  color: #1e293b;
   position: relative;
-  z-index: 1;
   min-height: 100vh;
+  color: #1e293b;
+  isolation: isolate;
 }
 
-/* Light mesh background for blog */
-.blog-light .mesh-bg {
-  opacity: 1;
-}
-
-.blog-light .mesh-bg .circle-1 {
-  background: #67e8f9;
-  width: 600px;
-  height: 600px;
-  filter: blur(140px);
-  opacity: 0.25;
-}
-
-.blog-light .mesh-bg .circle-2 {
-  background: #c4b5fd;
-  width: 550px;
-  height: 550px;
-  filter: blur(140px);
-  opacity: 0.2;
-}
-
-.blog-light .mesh-bg .circle-3 {
-  background: #93c5fd;
-  width: 500px;
-  height: 500px;
-  filter: blur(130px);
-  opacity: 0.18;
-}
-
-/* Tech network lines for light theme */
-.blog-light .tech-network {
-  background-image: 
-    linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.5;
-}
-
-/* Tech nodes for light theme */
-.blog-light .tech-node {
-  background: #0891b2;
-  box-shadow: 0 0 8px rgba(8, 145, 178, 0.6);
-}
-
-/* Particle canvas for light theme */
-.blog-light canvas {
-  opacity: 0.4;
+.blog-light::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: #f1f5f9;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Blog hero section with subtle gradient */

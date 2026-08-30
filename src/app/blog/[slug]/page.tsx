@@ -7,6 +7,7 @@ import { getPostBySlug, getPosts } from '@/sanity/lib/data'
 import ShareButtons from '@/components/ShareButtons'
 import HtmlArticleRenderer from '@/components/HtmlArticleRenderer'
 import ImageCarousel from '@/components/ImageCarousel'
+import BlogMeshBackground from '@/components/BlogMeshBackground'
 
 export const revalidate = 60
 
@@ -47,11 +48,7 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="blog-light">
-      <div className="mesh-bg">
-        <div className="circle-1"></div>
-        <div className="circle-2"></div>
-        <div className="circle-3"></div>
-      </div>
+      <BlogMeshBackground />
 
       <article className="relative z-10">
         {/* Header Section */}
