@@ -32,11 +32,11 @@ export default async function RealisationsPage() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {projects.map((project) => (
           <div key={project._id} className="blog-card rounded-2xl overflow-hidden flex flex-col justify-between group">
             <div>
-              <div className="relative h-56 w-full bg-slate-100">
+              <div className="relative h-48 w-full bg-slate-100">
                 <Image
                   src={project.mainImageUrl || '/img/image_4.png'}
                   alt={project.title}
@@ -48,13 +48,13 @@ export default async function RealisationsPage() {
                 </div>
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-5 flex flex-col flex-1">
                 <h2 className="font-display font-bold text-xl text-slate-900 group-hover:text-cyan-600 transition-colors">
                   {project.title}
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed">{project.summary}</p>
 
-                <div className="flex flex-wrap gap-1.5 pt-2">
+                <div className="flex flex-wrap gap-1.5 pt-2 mt-auto">
                   {project.techStack?.map((tech) => (
                     <span key={tech} className="text-xs px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-600">
                       {tech}
@@ -64,7 +64,7 @@ export default async function RealisationsPage() {
               </div>
             </div>
 
-            <div className="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-4">
+            <div className="p-5 pt-0 flex items-center justify-between border-t border-slate-100 mt-4">
               <Link
                 href={`/realisations/${project.slug.current}`}
                 className="blog-read-more text-xs py-2 px-4 flex items-center gap-2"

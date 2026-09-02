@@ -64,11 +64,11 @@ export default async function MarketplacePage() {
       </div>
 
       {/* Product Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {products.map((product) => (
           <div key={product._id} className="blog-card rounded-2xl overflow-hidden flex flex-col justify-between group">
             <div>
-              <div className="relative h-52 w-full bg-slate-100">
+              <div className="relative h-48 w-full bg-slate-100">
                 <Image
                   src={product.coverImageUrl || '/img/image_4.png'}
                   alt={product.title}
@@ -83,7 +83,7 @@ export default async function MarketplacePage() {
                 </div>
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-5 flex flex-col flex-1">
                 <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-cyan-600 transition-colors">
                   {product.title}
                 </h3>
@@ -92,7 +92,7 @@ export default async function MarketplacePage() {
                 </p>
 
                 {product.features && product.features.length > 0 && (
-                  <div className="space-y-2 pt-2 border-t border-slate-100">
+                  <div className="space-y-2 pt-2 border-t border-slate-100 mt-auto">
                     <p className="text-xs font-mono text-cyan-600 uppercase tracking-wider">Inclus :</p>
                     {product.features.map((feat, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
@@ -105,7 +105,7 @@ export default async function MarketplacePage() {
               </div>
             </div>
 
-            <div className="p-6 pt-0 mt-4">
+            <div className="p-5 pt-0 mt-4">
               <a
                 href={product.chariowLink}
                 target="_blank"
