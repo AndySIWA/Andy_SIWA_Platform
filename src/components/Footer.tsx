@@ -9,28 +9,28 @@ import { LinkedinIcon } from './LinkedinIcon'
 
 export default function Footer() {
   const pathname = usePathname()
-  const isBlog = pathname.startsWith('/blog')
+  const isLight = pathname.startsWith('/blog') || pathname.startsWith('/realisations') || pathname.startsWith('/marketplace')
 
-  const linkClass = isBlog
+  const linkClass = isLight
     ? 'text-slate-500 hover:text-cyan-600 transition-colors'
     : 'text-gray-400 hover:text-white transition-colors'
 
-  const headingClass = isBlog
+  const headingClass = isLight
     ? 'font-display font-bold text-xs text-cyan-600 uppercase tracking-[0.15em] mb-4'
     : 'font-display font-bold text-xs text-cyan uppercase tracking-[0.15em] mb-4'
 
-  const socialBtnClass = isBlog
+  const socialBtnClass = isLight
     ? 'w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-cyan-600 hover:border-cyan-300 hover:shadow-md hover:shadow-cyan-100 transition-all duration-200'
     : 'w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyan hover:border-cyan/40 hover:shadow-lg hover:shadow-cyan/10 transition-all duration-200'
 
   return (
     <footer className={`relative pt-16 pb-10 overflow-hidden ${
-      isBlog
-        ? 'bg-white border-t border-slate-100'
+      isLight
+        ? 'bg-gradient-to-b from-slate-50 to-slate-100 border-t border-slate-200'
         : 'bg-[#0b0f19] border-t border-white/[0.06]'
     }`}>
       {/* Subtle mesh for dark footer */}
-      {!isBlog && (
+      {!isLight && (
         <div className="absolute inset-0 opacity-30 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple/10 rounded-full blur-[120px]" />
@@ -43,20 +43,20 @@ export default function Footer() {
           <div className="md:col-span-1 space-y-4">
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
-                isBlog
+                isLight
                   ? 'bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-200'
                   : 'bg-gradient-to-br from-cyan to-blue-600 text-dark-900 shadow-lg shadow-cyan/20'
               }`}>
                 <Zap className="w-4 h-4 fill-current" />
               </div>
               <span className={`font-display font-extrabold text-base ${
-                isBlog ? 'text-slate-800' : 'text-white'
+                isLight ? 'text-slate-800' : 'text-white'
               }`}>
                 ANDY SIWA
               </span>
             </Link>
             <p className={`text-sm leading-relaxed ${
-              isBlog ? 'text-slate-500' : 'text-gray-400'
+              isLight ? 'text-slate-500' : 'text-gray-400'
             }`}>
               Ingénieur Électricien spécialisé en coordination technique, réseaux HTA/BT, domotique et développement web moderne.
             </p>
@@ -77,7 +77,7 @@ export default function Footer() {
           {/* Col 3: Expertises */}
           <div>
             <h4 className={headingClass}>Expertises</h4>
-            <ul className={`space-y-2.5 text-sm ${isBlog ? 'text-slate-500' : 'text-gray-400'}`}>
+            <ul className={`space-y-2.5 text-sm ${isLight ? 'text-slate-500' : 'text-gray-400'}`}>
               <li>Études Réseaux HTA/BT</li>
               <li>Supervision Domotique & IoT</li>
               <li>Développement Web & Dashboards</li>
@@ -95,27 +95,27 @@ export default function Footer() {
               <a href="https://www.linkedin.com/in/andy-siwa-180283199/" target="_blank" rel="noopener noreferrer" className={socialBtnClass} title="LinkedIn">
                 <LinkedinIcon className="w-4 h-4" />
               </a>
-              <a href="https://wa.me/237691234567" target="_blank" rel="noopener noreferrer" className={`${socialBtnClass} ${isBlog ? '!text-emerald-500 hover:!text-emerald-600 hover:!border-emerald-300' : '!text-emerald-400 hover:!text-emerald-400 hover:!border-emerald-400/40'}`} title="WhatsApp">
+              <a href="https://wa.me/237691234567" target="_blank" rel="noopener noreferrer" className={`${socialBtnClass} ${isLight ? '!text-emerald-500 hover:!text-emerald-600 hover:!border-emerald-300' : '!text-emerald-400 hover:!text-emerald-400 hover:!border-emerald-400/40'}`} title="WhatsApp">
                 <SiWhatsapp className="w-4 h-4" />
               </a>
               <a href="mailto:contact@blendy03ing@gmail.com" className={socialBtnClass} title="Email">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
-            <p className={`text-xs ${isBlog ? 'text-slate-400' : 'text-gray-500'}`}>
-              Géré avec <strong className={isBlog ? 'text-slate-600' : 'text-gray-300'}>Sanity CMS</strong> & hébergé sur{' '}
-              <strong className={isBlog ? 'text-slate-600' : 'text-gray-300'}>Netlify</strong>.
+            <p className={`text-xs ${isLight ? 'text-slate-400' : 'text-gray-500'}`}>
+              Géré avec <strong className={isLight ? 'text-slate-600' : 'text-gray-300'}>Sanity CMS</strong> & hébergé sur{' '}
+              <strong className={isLight ? 'text-slate-600' : 'text-gray-300'}>Netlify</strong>.
             </p>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-xs gap-3">
-          <p className={isBlog ? 'text-slate-400' : 'text-gray-500'}>
+          <p className={isLight ? 'text-slate-400' : 'text-gray-500'}>
             © {new Date().getFullYear()} Andy SIWA. Tous droits réservés.
           </p>
-          <div className={`flex items-center gap-1 ${isBlog ? 'text-slate-400' : 'text-gray-400'}`}>
-            Conçu avec <Heart className={`w-3.5 h-3.5 inline mx-0.5 fill-current ${isBlog ? 'text-cyan-500' : 'text-cyan'}`} /> par Andy SIWA
+          <div className={`flex items-center gap-1 ${isLight ? 'text-slate-400' : 'text-gray-400'}`}>
+            Conçu avec <Heart className={`w-3.5 h-3.5 inline mx-0.5 fill-current ${isLight ? 'text-cyan-500' : 'text-cyan'}`} /> par Andy SIWA
           </div>
         </div>
       </div>
