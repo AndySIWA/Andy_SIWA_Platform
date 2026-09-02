@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <footer className={`relative pt-16 pb-10 overflow-hidden ${
       isLight
-        ? 'bg-gradient-to-b from-slate-50 to-slate-100 border-t border-slate-200'
+        ? 'bg-white border-t border-slate-100'
         : 'bg-[#0b0f19] border-t border-white/[0.06]'
     }`}>
       {/* Subtle mesh for dark footer */}
