@@ -14,6 +14,7 @@ export default async function MarketplacePage() {
   const products = await getProducts()
 
   return (
+    <div className="blog-light">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
       {/* Header */}
       <div className="space-y-4 max-w-3xl">
@@ -118,6 +119,7 @@ export default async function MarketplacePage() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   )
 }
