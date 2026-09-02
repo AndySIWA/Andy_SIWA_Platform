@@ -54,15 +54,9 @@ export default defineType({
     defineField({
       name: 'category',
       title: 'Catégorie',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Électrotechnique & Réseaux', value: 'electrotechnique' },
-          { title: 'Développement Web & Apps', value: 'web' },
-          { title: 'Domotique & IoT', value: 'domotique' },
-          { title: 'Ingénierie & Etudes', value: 'ingenierie' },
-        ],
-      },
+      type: 'reference',
+      to: [{ type: 'category' }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'demoUrl',

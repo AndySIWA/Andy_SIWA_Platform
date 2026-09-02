@@ -51,16 +51,9 @@ export default defineType({
     defineField({
       name: 'category',
       title: 'Catégorie',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Génie Électrique', value: 'genie-electrique' },
-          { title: 'Développement Web', value: 'web-dev' },
-          { title: 'Domotique & IoT', value: 'domotique' },
-          { title: 'Systèmes Embarqués', value: 'embarque' },
-          { title: 'Carrière & Inno', value: 'carriere' },
-        ],
-      },
+      type: 'reference',
+      to: [{ type: 'category' }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'tags',
