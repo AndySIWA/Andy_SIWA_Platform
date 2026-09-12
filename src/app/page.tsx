@@ -41,10 +41,6 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan/10 border border-cyan/30 text-cyan text-xs font-mono">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Plateforme Web Interactive & CMS Managed</span>
-              </div> */}
 
               <h1 className="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan via-blue-400 to-purple">ANDY</span> SIWA
@@ -84,8 +80,8 @@ export default async function HomePage() {
                   <div className="text-xs text-gray-400">Projets Livrés avec Rigueur</div>
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-2xl text-emerald-400">Sanity</div>
-                  <div className="text-xs text-gray-400">Gestion dynamique</div>
+                  <div className="font-display font-extrabold text-2xl text-emerald-400">High-tech</div>
+                  <div className="text-xs text-gray-400">Vision innovante et passionnée</div>
                 </div>
               </div>
             </div>
@@ -115,9 +111,9 @@ export default async function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-cyan/10 border border-cyan/30 flex items-center justify-center text-cyan">
               <Zap className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg text-white">Études Réseaux HTA/BT</h3>
+            <h3 className="font-display font-bold text-lg text-white">Réseaux électriques HTA/BT</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Dimensionnement de postes de transformation, bilan de puissance, sélectivité des protections et schémas unifilaires.
+              Études, plannification, conception de plans d'exécution, suivi budgétaire et coordination de travaux d'électrification et maintenance de réseaux HTA/BT.
             </p>
           </div>
 
@@ -135,9 +131,9 @@ export default async function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
               <Code className="w-6 h-6" />
             </div>
-            <h3 className="font-display font-bold text-lg text-white">Développement Web</h3>
+            <h3 className="font-display font-bold text-lg text-white">Développement informatique</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Applications React / Next.js sur mesure, dashboards d&apos;analyse de données et intégrations d&apos;APIs.
+              Applications mobiles, sites web, dashboards sur mesure & interfaces homme-machine d&apos;analyse de données et intégrations d&apos;APIs.
             </p>
           </div>
 

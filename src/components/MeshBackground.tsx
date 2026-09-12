@@ -8,7 +8,7 @@ const COLORS = [
   [139, 92, 246],   // purple
 ]
 
-export default function BlogMeshBackground() {
+export default function MeshBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {

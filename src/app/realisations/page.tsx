@@ -16,7 +16,7 @@ export default async function RealisationsPage() {
 
   return (
     <div className="blog-light">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
       {/* Header */}
       <div className="space-y-4 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-600 text-xs font-mono">

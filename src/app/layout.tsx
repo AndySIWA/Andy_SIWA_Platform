@@ -3,7 +3,7 @@ import { Inter, Orbitron, Rajdhani } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import ParticleBackground from '@/components/ParticleBackground'
+import BackgroundLayer from '@/components/BackgroundLayer'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,13 +49,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${orbitron.variable} ${rajdhani.variable} dark`}>
       <body className="bg-dark-900 text-gray-100 min-h-screen flex flex-col antialiased">
-        {/* Background Mesh */}
-        <div className="mesh-bg">
-          <div className="mesh-circle circle-1"></div>
-          <div className="mesh-circle circle-2"></div>
-          <div className="mesh-circle circle-3"></div>
-        </div>
-        <ParticleBackground />
+        <BackgroundLayer />
 
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>

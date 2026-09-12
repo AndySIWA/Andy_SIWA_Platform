@@ -66,4 +66,7 @@ coverage.xml
 .pytest_cache/
 .hypothesis/
 .coverage*
+
+# Generated PDFs
+output/pdfs/
 ```

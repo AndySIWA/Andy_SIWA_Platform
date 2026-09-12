@@ -9,7 +9,7 @@ import { LinkedinIcon } from './LinkedinIcon'
 
 export default function Footer() {
   const pathname = usePathname()
-  const isLight = pathname.startsWith('/blog') || pathname.startsWith('/realisations') || pathname.startsWith('/marketplace')
+  const isLight = pathname.startsWith('/blog') || pathname.startsWith('/realisations') || pathname.startsWith('/marketplace') || pathname.startsWith('/idees')
 
   const linkClass = isLight
     ? 'text-slate-500 hover:text-cyan-600 transition-colors'
@@ -24,10 +24,10 @@ export default function Footer() {
     : 'w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyan hover:border-cyan/40 hover:shadow-lg hover:shadow-cyan/10 transition-all duration-200'
 
   return (
-    <footer className={`relative pt-16 pb-10 overflow-hidden ${
+    <footer className={`relative z-20 pt-16 pb-10 overflow-hidden ${
       isLight
         ? 'bg-white border-t border-slate-100'
-        : 'bg-[#0b0f19] border-t border-white/[0.06]'
+        : 'bg-[#081D21] border-t border-white/[0.06]'
     }`}>
       {/* Subtle mesh for dark footer */}
       {!isLight && (
@@ -42,11 +42,7 @@ export default function Footer() {
           {/* Col 1: Bio */}
           <div className="md:col-span-1 space-y-4">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
-                isLight
-                  ? 'bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-200'
-                  : 'bg-gradient-to-br from-cyan to-blue-600 text-dark-900 shadow-lg shadow-cyan/20'
-              }`}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center font-bold bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-20">
                 <Zap className="w-4 h-4 fill-current" />
               </div>
               <span className={`font-display font-extrabold text-base ${
@@ -102,10 +98,10 @@ export default function Footer() {
                 <Mail className="w-4 h-4" />
               </a>
             </div>
-            <p className={`text-xs ${isLight ? 'text-slate-400' : 'text-gray-500'}`}>
+            {/* <p className={`text-xs ${isLight ? 'text-slate-400' : 'text-gray-500'}`}>
               Géré avec <strong className={isLight ? 'text-slate-600' : 'text-gray-300'}>Sanity CMS</strong> & hébergé sur{' '}
               <strong className={isLight ? 'text-slate-600' : 'text-gray-300'}>Netlify</strong>.
-            </p>
+            </p> */}
           </div>
         </div>
 
@@ -115,7 +111,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Andy SIWA. Tous droits réservés.
           </p>
           <div className={`flex items-center gap-1 ${isLight ? 'text-slate-400' : 'text-gray-400'}`}>
-            Conçu avec <Heart className={`w-3.5 h-3.5 inline mx-0.5 fill-current ${isLight ? 'text-cyan-500' : 'text-cyan'}`} /> par Andy SIWA
+            Par Ing. Andy SIWA - conçu avec passion !
+            {/* Conçu avec <Heart className={`w-3.5 h-3.5 inline mx-0.5 fill-current ${isLight ? 'text-cyan-500' : 'text-cyan'}`} /> par Andy SIWA */}
           </div>
         </div>
       </div>
