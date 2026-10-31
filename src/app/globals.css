@@ -522,11 +522,11 @@ body {
 
 /* Light share buttons container */
 .blog-share {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #ffffff29;
+  /* border: 1px solid #e2e8f0; */
   border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 0.2rem 1.05rem;
+  /* box-shadow: 0 1px 4px rgba(0,0,0,0.04); */
 }
 
 /* Light article link / read more */

@@ -11,17 +11,18 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, alt = 'Image de galerie' }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const validImages = images?.filter((src): src is string => Boolean(src)) ?? []
 
-  if (!images || images.length === 0) return null
+  if (validImages.length === 0) return null
 
-  const goToPrev = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  const goToNext = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+  const goToPrev = () => setCurrentIndex((prev) => (prev === 0 ? validImages.length - 1 : prev - 1))
+  const goToNext = () => setCurrentIndex((prev) => (prev === validImages.length - 1 ? 0 : prev + 1))
 
   return (
     <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden group bg-black">
       {/* Image */}
       <div className="relative w-full h-full transition-transform duration-700 ease-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-        {images.map((src, i) => (
+        {validImages.map((src, i) => (
           <div key={i} className="absolute inset-0 min-w-full h-full">
             <Image
               src={src}
@@ -36,7 +37,7 @@ export default function ImageCarousel({ images, alt = 'Image de galerie' }: Imag
       </div>
 
       {/* Controls */}
-      {images.length > 1 && (
+      {validImages.length > 1 && (
         <>
           <button
             onClick={goToPrev}
@@ -53,7 +54,7 @@ export default function ImageCarousel({ images, alt = 'Image de galerie' }: Imag
 
           {/* Dots */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-            {images.map((_, i) => (
+            {validImages.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}

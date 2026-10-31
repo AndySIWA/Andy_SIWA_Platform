@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Clock, Calendar, Tag, User, Share2 } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, Tag, User } from 'lucide-react'
 import { getPostBySlug, getPosts } from '@/sanity/lib/data'
 import ShareButtons from '@/components/ShareButtons'
 import HtmlArticleRenderer from '@/components/HtmlArticleRenderer'
@@ -50,7 +50,7 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
 
       <article className="relative z-10">
         {/* Header Section */}
-        <div className="blog-detail-header">
+        <div>
           <div className="w-full max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
             {/* Back link */}
             <Link href="/blog" className="blog-back mb-8 inline-flex">
@@ -97,10 +97,10 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
         {/* Full-Width Gallery Carousel */}
         {(() => {
           const validGallery = post.galleryUrls?.filter((url): url is string => !!url) ?? []
-          const images = validGallery.length > 0 ? validGallery : [post.mainImageUrl]
+          const images = validGallery.length > 0 ? validGallery : post.mainImageUrl ? [post.mainImageUrl] : []
           return images.length > 0 ? (
             <ImageCarousel
-              images={images as string[]}
+              images={images}
               alt={post.title}
             />
           ) : null
@@ -108,11 +108,7 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
 
         {/* Share Bar */}
         <div className="w-full max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="blog-share flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-slate-500">
-              <Share2 className="w-4 h-4 text-cyan-500" />
-              <span className="font-medium">Partager cet article</span>
-            </div>
+          <div className="blog-share">
             <ShareButtons title={post.title} url={shareUrl} />
           </div>
         </div>
@@ -137,10 +133,6 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
                 <li>Validation des calculs conformément à la norme NFC 15-100.</li>
                 <li>Mise en œuvre d&apos;une supervision pour anticiper les défaillances.</li>
               </ul>
-
-              <p>
-                Ce contenu peut être enrichi et mis à jour en temps réel directement depuis le Studio Sanity.
-              </p>
             </div>
           </div>
         )}
@@ -164,11 +156,7 @@ export default async function PostDetailPage({ params }: { params: Promise<{ slu
           )}
 
           {/* Bottom Share */}
-          <div className="blog-share flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-slate-500">
-              <Share2 className="w-4 h-4 text-cyan-500" />
-              <span className="font-medium">Partager cet article</span>
-            </div>
+          <div className="blog-share">
             <ShareButtons title={post.title} url={shareUrl} />
           </div>
         </div>

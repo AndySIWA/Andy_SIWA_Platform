@@ -73,15 +73,17 @@ export default async function BlogPage() {
               className="blog-card flex flex-col group"
             >
               {/* Card Image */}
-              <div className="blog-card-img">
-                <Image
-                  src={post.mainImageUrl || '/img/image_5.jpg'}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
+              {post.mainImageUrl && (
+                <div className="blog-card-img">
+                  <Image
+                    src={post.mainImageUrl || '/img/image_5.jpg'}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              )}
 
               {/* Card Content */}
               <div className="p-5 flex flex-col flex-1">
